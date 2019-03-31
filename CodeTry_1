@@ -1,0 +1,88 @@
+ //  1. Create Quote Array//
+
+/*** 
+  Create a variable to store quotes, named quotes.  Group the list of quotes in an array literal.  The object has two
+  properties, quote and source. Some have three or four properties added, citation and year.
+***/
+
+var quotes = [
+  {
+    quote: "Don't be satisfied with stories, how things have gone with others.  Unfold your own myth.",
+    source: "Rumi"
+  },
+  {
+    quote: "Fall seven times and stand up eight",
+    source: "Japanese Proverb"
+  },
+  {
+    quote: "The earth has music for those who listen",
+    source: "William Shakespeare"
+  },
+  {
+    quote: "Do. Or do not. There is no try",
+    source: "Yoda",
+    citation: "Star Wars: The Empire Strikes Back",
+    year: 1980
+  },
+  {
+    quote: "Fear is the path to the dark side... fear leads to anger... anger leads to hate... hate leads to suffering.",
+    source: "Yoda",
+    citation: "Star Wars: The Phantom Menace",
+    year: 1999
+  },
+  {
+    quote: "Often when you think you're at the end of something, you're at the beginning of something else.",
+    source: "Fred Rogers"
+  } 
+];
+
+  //log array of quotes to the console//
+
+  console.log(quotes);
+
+
+  //  2. Create the random selection code using getRandomQuote function//
+
+/*** Create a function called 'getRandomQuote.  Create a variable to store a random number to select a quote.  Use the 
+ random number to 'return' a random quote object from the quotes array.  This function selects a quote number position
+ from 0 to the last index number in the array.***/
+  
+function getRandomQuote( ) {
+  var newQuoteNum = Math.floor( Math.random() * quotes.length );
+
+  // use 'newQuoteNum' to 'grab' a random item from the quotes array. Return the random quote object from the array//
+
+  return quotes[ newQuoteNum ];
+}
+
+
+//  3. Create the 'printQuote' function, this is from a previous challenge://
+
+function printQuote( ){
+  document.getElementById('quoteDisplay').innerHTML = quotes[newQuoteNum];
+}    
+//quotes[newQuotesNum] calls the getRandomQuote function.//
+//'quoteDisplay' will be the variable created for the HTML string, set to be empty//
+
+
+//  4.  Create an HTML template to build HTML string. Include quote, source, citation, and year.//
+
+
+  var quoteDisplay = ['<h2> quote: "quotes.quote + " ,</h2>',
+    quoteDisplay += '<p> source: "quotes.source + " ,</p>',
+    quoteDisplay += '<p> citation: "quotes.citation + " ,</p>',
+    quoteDisplay += '<p> year: quotes.year + ,</p>'];
+  
+
+
+//Set the `innerHTML` of the `quote-box` div to the HTML string.???//
+
+
+/***
+  When the "Show another quote" button is clicked, the event listener 
+  below will be triggered, and it will call, or "invoke", the `printQuote` 
+  function. So do not make any changes to the line of code below this 
+  comment.
+***/
+
+document.getElementById('loadQuote').addEventListener("click", printQuote, false);
